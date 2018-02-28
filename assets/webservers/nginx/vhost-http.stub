@@ -1,0 +1,30 @@
+server {
+    
+
+    listen 80;
+    listen [::]:80;
+
+    access_log {{ACCESS_LOG}}/access.log
+    error_log {{ERROR_LOG}}/error.log
+
+    root {{APP_PATH}}/public;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php{{FPM_VERSION}}-fpm.sock;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+
+
+    location ~ /.well-known {
+        allow all;
+    }
+}

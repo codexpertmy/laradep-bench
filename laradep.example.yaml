@@ -1,0 +1,22 @@
+enviroment: local
+
+webserver:
+  driver: nginx
+  path: /etc/nginx
+  ssl: false
+  stub_path: 'assets/webservers/nginx'
+  app_path: /var/www
+  log_path: /var/www/logs
+
+database:
+  driver: mysql
+  host: 127.0.0.1
+  username: root
+  password: laradep
+
+queue:
+  driver: redis
+  host: 127.0.0.1
+
+supervisor:
+  configpath: /etc/supervisor/config.d

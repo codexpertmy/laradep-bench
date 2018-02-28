@@ -1,0 +1,25 @@
+{
+    "name": "tajulasri/laradep-bench",
+    "description": "Laravel deployment bench written in PHP",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tajul Asri",
+            "email": "tajulasri@codexpert.my"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/process": "^4.1@dev",
+        "symfony/yaml": "^4.1@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laradep\\":"Laradep/"
+        },
+        "files": [
+            "helper.php"
+        ]
+    }
+}

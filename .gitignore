@@ -1,0 +1,6 @@
+/test
+/logs
+/nginx
+/vendor
+laradep.yaml
+composer.lock
