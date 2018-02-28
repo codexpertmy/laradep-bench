@@ -23,7 +23,7 @@ class NginxVhostTask extends Task implements TaskContract
     {
         $stub = $this->getStub('vhost-http');
         $appPath = $this->config['webserver']['app_path'];
-        $nginxPath = $this->config['webserver']['path'] . '/sites-available';
+        $nginxPath = $this->config['webserver']['path'];
         $logPath = $this->config['webserver']['log_path'];
 
         $content = str_replace(
@@ -43,13 +43,13 @@ class NginxVhostTask extends Task implements TaskContract
         );
 
         file_put_contents(
-            $nginxPath . '/' . $this->app
+            $nginxPath . '/sites-available/' . $this->app
             , $content);
 
         $symlinkVhost = new Process(
             sprintf(
                 'ln -s %s %s',
-                $nginxPath . '/' . $this->app,
+                $nginxPath . '/sites-available/' . $this->app,
                 $nginxPath . '/sites-enabled'
             )
         );
