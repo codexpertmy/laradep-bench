@@ -13,6 +13,6 @@ class ReloadDatabaseTask extends Task implements TaskContract
 
     public function run()
     {
-        
+        return exec('service mysql restart');
     }
 }

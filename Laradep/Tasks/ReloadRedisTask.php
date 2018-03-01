@@ -13,6 +13,8 @@ class ReloadRedisTask extends Task implements TaskContract
 
     public function run()
     {
-        
+        if ($this->redisInstalled()) {
+            return exec('service redis restart');
+        }
     }
 }

@@ -25,4 +25,20 @@ trait HasUtility
     {
 
     }
+
+    /**
+     * @return mixed
+     */
+    public function redisInstalled()
+    {
+        $process = new Process('redis-server --version');
+        try {
+            $process->mustRun();
+            return true;
+
+        } catch (ProcessFailedException $e) {
+
+            return false;
+        }
+    }
 }
