@@ -2,6 +2,7 @@
 
 namespace Laradep\Tasks;
 
+use Laradep\Exceptions\AppAlreadyExistException;
 use Laradep\Tasks\Task;
 use Laradep\Tasks\TaskContract;
 use Symfony\Component\Process\Process;
@@ -25,9 +26,18 @@ class LoggingTask extends Task implements TaskContract
         $this->createLogsFile();
     }
 
+    /**
+     * @return mixed
+     */
     public function setupLogDirectory()
     {
-        return !is_dir($this->getLogPath()) ? $this->createLogDirectory($this->getLogPath()) : false;
+        if ($this->folderAlreadyExist($this->getLogPath())) {
+            throw new AppAlreadyExistException(
+                sprintf('logging folder with %s name already exists.', $this->app)
+            );
+
+        }
+        return $this->createLogDirectory($this->getLogPath());
     }
 
     protected function createLogsFile()

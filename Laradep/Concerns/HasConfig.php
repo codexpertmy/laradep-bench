@@ -1,5 +1,5 @@
 <?php
-namespace Laradep;
+namespace Laradep\Concerns;
 
 use Laradep\Config;
 

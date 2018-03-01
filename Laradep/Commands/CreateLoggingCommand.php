@@ -2,8 +2,8 @@
 
 namespace Laradep\Commands;
 
-use Laradep\HasConfig;
-use Laradep\HasStub;
+use Laradep\Concerns\HasConfig;
+use Laradep\Concerns\HasStub;
 use Laradep\Tasks\LoggingTask;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

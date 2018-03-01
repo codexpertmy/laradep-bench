@@ -2,7 +2,7 @@
 
 namespace Laradep\Tasks;
 
-use Laradep\HasStub;
+use Laradep\Concerns\HasStub;
 use Laradep\Tasks\Task;
 use Laradep\Tasks\TaskContract;
 use Symfony\Component\Process\Process;

@@ -2,7 +2,7 @@
 
 namespace Laradep\Tasks;
 
-use Laradep\HasStub;
+use Laradep\Concerns\HasStub;
 use Laradep\Tasks\Task;
 use Laradep\Tasks\TaskContract;
 use Symfony\Component\Process\Process;
@@ -46,22 +46,54 @@ class NginxVhostTask extends Task implements TaskContract
             $nginxPath . '/sites-available/' . $this->app
             , $content);
 
+        $this->symlinkVhost($nginxPath);
+        $this->checkNginxConfig();
+
+    }
+
+    /**
+     * @param $configPath
+     */
+    protected function symlinkVhost($configPath)
+    {
         $symlinkVhost = new Process(
             sprintf(
                 'ln -s %s %s',
-                $nginxPath . '/sites-available/' . $this->app,
-                $nginxPath . '/sites-enabled'
+                $configPath . '/sites-available/' . $this->app,
+                $configPath . '/sites-enabled'
             )
         );
 
-        $checkNginxConfig = new Process('nginx -t');
-        $symlinkVhost->run();
-        $checkNginxConfig->run();
+        try {
 
-        $symlinkVhost->getOutput();
-        $checkNginxConfig->getOutput();
+            $symlinkVhost->mustRun();
+            return $symlinkVhost->getOutput();
+
+        } catch (ProcessFailedException $e) {
+
+            return $e->getMessage();
+        }
     }
 
+    /**
+     * @return mixed
+     */
+    protected function checkNginxConfig()
+    {
+        $checkNginxConfig = new Process('nginx -t');
+
+        try {
+
+            $checkNginxConfig->mustRun();
+            return $checkNginxConfig->getOutput();
+
+        } catch (ProcessFailedException $e) {
+
+            return $e->getMessage();
+        }
+
+        $checkNginxConfig->run();
+    }
     /**
      * @return mixed
      */

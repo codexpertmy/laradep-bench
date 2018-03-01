@@ -4,12 +4,13 @@ namespace Laradep\Commands;
 
 use Laradep\Concerns\HasConfig;
 use Laradep\Concerns\HasStub;
+use Laradep\Tasks\CloneProjectRepositoryTask;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CreateTaskCommand extends Command
+class CreateProjectCommand extends Command
 {
     use HasStub, HasConfig;
 
@@ -17,10 +18,11 @@ class CreateTaskCommand extends Command
     {
         $this
         // the name of the command (the part after "bin/console")
-        ->setName('laradep:create_task')
+        ->setName('laradep:clone_project')
             ->addArgument('name', InputArgument::REQUIRED, 'The name of the task.')
-            ->setDescription('Create a new task.')
-            ->setHelp('This command allows you to create task by using command line interface.');
+            ->addArgument('repository', InputArgument::REQUIRED, 'The name of the repository.')
+            ->setDescription('Clone  new project.')
+            ->setHelp('This command allows you to clone project from repository by using command line interface.');
     }
 
     /**
@@ -29,17 +31,12 @@ class CreateTaskCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $taskName = $input->getArgument('name') . 'Task';
-        $content = str_replace('{{TaskName}}', $taskName, $this->getStub('task.plain'));
-        $taskPath = base_path('Laradep/Tasks/');
+        $app = $input->getArgument('name');
+        $repositoryOrigin = $input->getArgument('repository');
 
-        file_put_contents($taskPath . $taskName . '.php', $content);
-
-        $output->write(
-            sprintf('create task %s',
-                $taskPath . $taskName . '.php'
-            )
-        );
+        $task = new CloneProjectRepositoryTask($app);
+        $task->setupRepository($repositoryOrigin);
+        $output->writeln($task->run());
     }
 
     protected function stubPath()

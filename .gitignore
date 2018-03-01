@@ -1,6 +1,7 @@
-/test
+/tests
 /logs
 /nginx
+/www
 /vendor
 laradep.yaml
 composer.lock

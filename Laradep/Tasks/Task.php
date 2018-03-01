@@ -2,11 +2,12 @@
 
 namespace Laradep\Tasks;
 
-use Laradep\HasConfig;
+use Laradep\Concerns\HasConfig;
+use Laradep\Concerns\HasUtility;
 
 abstract class Task
 {
-    use HasConfig;
+    use HasConfig, HasUtility;
 
     /**
      * @var mixed

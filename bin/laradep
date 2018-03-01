@@ -4,6 +4,7 @@
 require_once 'bootstrap.php';
 
 use Laradep\Commands\CreateLoggingCommand;
+use Laradep\Commands\CreateProjectCommand;
 use Laradep\Commands\CreateTaskCommand;
 use Laradep\Commands\CreateVhostCommand;
 use Symfony\Component\Console\Application;
@@ -12,4 +13,5 @@ $app = new Application;
 $app->add(new CreateTaskCommand);
 $app->add(new CreateLoggingCommand);
 $app->add(new CreateVhostCommand);
+$app->add(new CreateProjectCommand);
 $app->run();
