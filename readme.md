@@ -2,7 +2,7 @@
 
 This are mainly for laravel application deployment purpose within single command line application written in PHP.
 
-Disclaimer: Experimental tools.
+Disclaimer: Experimental tools and only support for ubuntu only.
 
 ### Available commands
 - 1. Create project from repository.
@@ -10,3 +10,19 @@ Disclaimer: Experimental tools.
 - 3. Setup logging files related for current project.
 - 4. Setup vhost for nginx server. 
 - 5. Setup ssl using letsencrypt.
+
+
+### Create project
+```php 
+php bin/laradep laradep:clone_project <project_name> <project_origin_repository>
+```
+
+### Create Vhost
+```php 
+php bin/laradep laradep:create_vhost <project_name>
+```
+
+### Create Logging
+```php 
+php bin/laradep laradep:create_logging <project_name>
+```
