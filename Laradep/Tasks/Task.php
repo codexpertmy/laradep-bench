@@ -26,4 +26,12 @@ abstract class Task
         $this->app = $app;
         $this->config = $this->instance()->config();
     }
+
+    /**
+     * @return mixed
+     */
+    protected function getProjectPath()
+    {
+        return $this->config['webserver']['app_path'] . DIRECTORY_SEPARATOR;
+    }
 }

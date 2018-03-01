@@ -20,4 +20,9 @@ trait HasUtility
     {
         return is_dir($path) ?: false;
     }
+
+    public function generateRandomPassword(): string
+    {
+
+    }
 }

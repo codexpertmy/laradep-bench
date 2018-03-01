@@ -3,6 +3,7 @@
 
 require_once 'bootstrap.php';
 
+use Laradep\Commands\CreateDatabaseMysqlCommand;
 use Laradep\Commands\CreateLoggingCommand;
 use Laradep\Commands\CreateProjectCommand;
 use Laradep\Commands\CreateTaskCommand;
@@ -14,4 +15,5 @@ $app->add(new CreateTaskCommand);
 $app->add(new CreateLoggingCommand);
 $app->add(new CreateVhostCommand);
 $app->add(new CreateProjectCommand);
+$app->add(new CreateDatabaseMysqlCommand);
 $app->run();

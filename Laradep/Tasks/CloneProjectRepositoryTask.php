@@ -58,12 +58,4 @@ class CloneProjectRepositoryTask extends Task implements TaskContract
             ));
     }
 
-    /**
-     * @return mixed
-     */
-    protected function getProjectPath()
-    {
-        return $this->config['webserver']['app_path'] . DIRECTORY_SEPARATOR;
-    }
-
 }
