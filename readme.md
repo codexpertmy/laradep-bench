@@ -12,17 +12,19 @@ Disclaimer: Experimental tools and only support for ubuntu only.
 - 5. Setup ssl using letsencrypt.
 
 
-### Create project
-```php 
+#### Create project from repository
+``` 
 php bin/laradep laradep:clone_project <project_name> <project_origin_repository>
 ```
 
-### Create Vhost
-```php 
+#### Create Virtual host via Nginx
+``` 
 php bin/laradep laradep:create_vhost <project_name>
 ```
 
-### Create Logging
-```php 
+#### Create Logging for Nginx
+``` 
 php bin/laradep laradep:create_logging <project_name>
 ```
+
+__Author : tajul@codexpert.my__
