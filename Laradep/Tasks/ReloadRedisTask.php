@@ -11,10 +11,13 @@ class ReloadRedisTask extends Task implements TaskContract
 {
     use HasStub;
 
+    /**
+     * @param ControllAble $redis
+     */
     public function run()
     {
         if ($this->redisInstalled()) {
-            return exec('service redis restart');
+            //$redis->start();
         }
     }
 }

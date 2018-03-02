@@ -1,4 +1,5 @@
 enviroment: local
+email: example@yahoo.com
 
 webserver:
   driver: nginx

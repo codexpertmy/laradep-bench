@@ -27,4 +27,4 @@ php bin/laradep laradep:create_vhost <project_name>
 php bin/laradep laradep:create_logging <project_name>
 ```
 
-__Author : tajul@codexpert.my__
+__Author__ : tajul@codexpert.my

@@ -3,13 +3,14 @@
 namespace Laradep\Tasks;
 
 use Laradep\Concerns\HasStub;
+use Laradep\Concerns\HasUtility;
 use Laradep\Tasks\Task;
 use Laradep\Tasks\TaskContract;
 use Symfony\Component\Process\Process;
 
 class CreateDatabaseProjectTask extends Task implements TaskContract
 {
-    use HasStub;
+    use HasStub, HasUtility;
 
     /**
      * @var string
@@ -29,6 +30,7 @@ class CreateDatabaseProjectTask extends Task implements TaskContract
     protected function setupDatabase()
     {
         //generate random password
+        $userGeneratedPassword = $this->generateRandomPassword();
         echo 'setup database done.' . $this->getProjectPath() . $this->app . '/' . $this->enviroment;
         echo $this->getDatabaseUser();
     }
