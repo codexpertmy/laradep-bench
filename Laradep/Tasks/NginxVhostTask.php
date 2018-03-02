@@ -30,12 +30,14 @@ class NginxVhostTask extends Task implements TaskContract
             [
                 '{{ACCESS_LOG}}',
                 '{{ERROR_LOG}}',
+                '{{APP_DOMAIN}}',
                 '{{APP_PATH}}',
                 '{{FPM_VERSION}}',
             ],
             [
                 $logPath . '/' . $this->app,
                 $logPath . '/' . $this->app,
+                $this->app,
                 $appPath . '/' . $this->app,
                 '7.1',
             ],
