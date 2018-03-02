@@ -1,12 +1,12 @@
 server {
     
-
     listen 80;
     listen [::]:80;
 
-    access_log {{ACCESS_LOG}}/access.log
-    error_log {{ERROR_LOG}}/error.log
+    access_log {{ACCESS_LOG}}/access.log;
+    error_log {{ERROR_LOG}}/error.log;
 
+    server_name {{APP_DOMAIN}}
     root {{APP_PATH}}/public;
     index index.php index.html index.htm;
 
