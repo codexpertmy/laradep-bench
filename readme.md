@@ -2,7 +2,7 @@
 
 This are mainly for laravel application deployment purpose within single command line application written in PHP.
 
-Disclaimer: Experimental tools and only support for ubuntu only.
+Disclaimer: Experimental tools and only support for ubuntu and nginx only.
 
 
 ### Install
@@ -26,6 +26,14 @@ cp laradep.example.yaml laradep.yaml
 - 5. Setup ssl using letsencrypt.
 
 
+
+#### Create and deploy with http config for laravel application
+``` 
+php bin/laradep laradep:deploy <project_name>
+```
+
+Or using single line command interface to build what you need only.
+
 #### Create project from repository
 ``` 
 php bin/laradep laradep:clone_project <project_name> <project_origin_repository>
@@ -35,7 +43,6 @@ php bin/laradep laradep:clone_project <project_name> <project_origin_repository>
 ``` 
 php bin/laradep laradep:create_logging <project_name>
 ```
-
 
 #### Create Virtual host via Nginx
 ``` 
