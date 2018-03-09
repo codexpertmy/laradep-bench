@@ -27,14 +27,16 @@ composer install
 php bin/laradep laradep:clone_project <project_name> <project_origin_repository>
 ```
 
+#### Create Logging for Nginx
+``` 
+php bin/laradep laradep:create_logging <project_name>
+```
+
+
 #### Create Virtual host via Nginx
 ``` 
 php bin/laradep laradep:create_vhost <project_name>
 ```
 
-#### Create Logging for Nginx
-``` 
-php bin/laradep laradep:create_logging <project_name>
-```
 
 __Author__ : tajul@codexpert.my
