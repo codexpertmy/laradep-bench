@@ -14,6 +14,10 @@ git clone <repository>
 composer install
 ```
 
+```
+cp laradep.example.yaml laradep.yaml
+```
+
 ### Available commands
 - 1. Create project from repository.
 - 2. Setup database.

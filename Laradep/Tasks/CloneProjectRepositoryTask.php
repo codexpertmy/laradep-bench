@@ -25,7 +25,9 @@ class CloneProjectRepositoryTask extends Task implements TaskContract
     public function run()
     {
         $this->cloneProjectRepository();
-        if (!$this->folderAlreadyExist($this->getProjectPath() . $this->app())) {
+
+        if ($this->folderAlreadyExist($this->getProjectPath() . $this->app)) {
+            //check project successfully cloned
             $this->composerInstall();
         }
     }

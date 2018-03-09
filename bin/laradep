@@ -9,6 +9,7 @@ use Laradep\Commands\CreateProjectCommand;
 use Laradep\Commands\CreateSslCertConfigCommand;
 use Laradep\Commands\CreateTaskCommand;
 use Laradep\Commands\CreateVhostCommand;
+use Laradep\Commands\HttpVhostLaravelSetupCommand;
 use Symfony\Component\Console\Application;
 
 $app = new Application;
@@ -18,4 +19,5 @@ $app->add(new CreateVhostCommand);
 $app->add(new CreateProjectCommand);
 $app->add(new CreateDatabaseMysqlCommand);
 $app->add(new CreateSslCertConfigCommand);
+$app->add(new HttpVhostLaravelSetupCommand);
 $app->run();
