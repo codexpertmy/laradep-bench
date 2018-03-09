@@ -4,6 +4,16 @@ This are mainly for laravel application deployment purpose within single command
 
 Disclaimer: Experimental tools and only support for ubuntu only.
 
+
+### Install
+```
+git clone <repository>
+```
+
+```
+composer install
+```
+
 ### Available commands
 - 1. Create project from repository.
 - 2. Setup database.
