@@ -29,7 +29,7 @@ cp laradep.example.yaml laradep.yaml
 
 #### Create and deploy with http config for laravel application
 ``` 
-php bin/laradep laradep:deploy <project_name>
+php bin/laradep laradep:deploy <project_name> <project_origin_repository>
 ```
 
 Or using single line command interface to build what you need only.
